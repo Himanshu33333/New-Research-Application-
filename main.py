@@ -42,13 +42,14 @@ if process_url_clicked:
     vector_index.save_local("faiss_index_store")
 
 
-vector_index = FAISS.load_local(
+
+query = main_placeholder.text_input("Question: ")
+if query:
+    vector_index = FAISS.load_local(
         "faiss_index_store",
         embeddings,
         allow_dangerous_deserialization=True
     )
-query = main_placeholder.text_input("Question: ")
-if query:
     chain = RetrievalQAWithSourcesChain.from_llm(llm=llm, retriever=vector_index.as_retriever())
     r = chain.invoke({"question": query}, return_only_outputs=True)
     st.header("Answer")
@@ -60,6 +61,7 @@ if query:
         sources_list = sources.split("\n")  # Split the sources by newline
         for source in sources_list:
             st.write(source)
+
 
 
 
