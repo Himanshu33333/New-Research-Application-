@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 api_key = os.environ.get("OPEN_API_KEY")
 from langchain_openai import OpenAI
-from langchain.document_loaders import UnstructuredURLLoader
+from langchain_community.document_loaders import UnstructuredURLLoader
 import streamlit as st
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
@@ -60,6 +60,7 @@ if query:
         sources_list = sources.split("\n")  # Split the sources by newline
         for source in sources_list:
             st.write(source)
+
 
 
 
