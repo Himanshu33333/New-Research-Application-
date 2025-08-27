@@ -7,4 +7,6 @@ faiss-cpu
 sentence-transformers
 langchain-community
 hf_xet
+unstructured
+html2text
 
