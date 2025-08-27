@@ -1,0 +1,8 @@
+openai-agents
+python-dotenv
+langchain-openai
+langchain
+streamlit
+faiss-cpu
+sentence-transformers
+hf_xet
